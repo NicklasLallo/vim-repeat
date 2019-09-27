@@ -156,15 +156,15 @@ nnoremap <silent> <Plug>(RepeatRedo)     :<C-U>call repeat#wrap("\<Lt>C-R>",v:co
 if !hasmapto('<Plug>(RepeatDot)', 'n')
     nmap . <Plug>(RepeatDot)
 endif
-if !hasmapto('<Plug>(RepeatUndo)', 'n')
-    nmap u <Plug>(RepeatUndo)
-endif
-if maparg('U','n') ==# '' && !hasmapto('<Plug>(RepeatUndoLine)', 'n')
-    nmap U <Plug>(RepeatUndoLine)
-endif
-if !hasmapto('<Plug>(RepeatRedo)', 'n')
-    nmap <C-R> <Plug>(RepeatRedo)
-endif
+" if !hasmapto('<Plug>(RepeatUndo)', 'n')
+"     nmap u <Plug>(RepeatUndo)
+" endif
+" if maparg('U','n') ==# '' && !hasmapto('<Plug>(RepeatUndoLine)', 'n')
+"     nmap U <Plug>(RepeatUndoLine)
+" endif
+" if !hasmapto('<Plug>(RepeatRedo)', 'n')
+"     nmap <C-R> <Plug>(RepeatRedo)
+" endif
 
 augroup repeatPlugin
     autocmd!
