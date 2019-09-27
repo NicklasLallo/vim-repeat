@@ -138,6 +138,16 @@ function! repeat#wrap(command,count)
     endif
 endfunction
 
+
+function! repeat#wrapMod(command,count)
+    let preserve = (g:repeat_tick == b:changedtick)
+    call feedkeys((a:count ? a:count : '').a:command, 'm')
+    exe (&foldopen =~# 'undo\|all' ? 'norm! zv' : '')
+    if preserve
+        let g:repeat_tick = b:changedtick
+    endif
+endfunction
+
 nnoremap <silent> <Plug>(RepeatDot)      :<C-U>exe repeat#run(v:count)<CR>
 nnoremap <silent> <Plug>(RepeatUndo)     :<C-U>call repeat#wrap('u',v:count)<CR>
 nnoremap <silent> <Plug>(RepeatUndoLine) :<C-U>call repeat#wrap('U',v:count)<CR>
