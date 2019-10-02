@@ -19,6 +19,18 @@ command at the end of your map functions.
 
     silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
+## Fork
+This fork changes two things:
+* It disables the default maps for u, U, & ctrl+r. To restore them use:
+```
+nmap u <Plug>(RepeatUndo)
+nmap U <Plug>(RepeatUndoLine)
+nmap <C-R> <Plug>(RepeatRedo)
+```
+* It adds a optional wrapper that supports remapping so that you can use other functions together with this:
+```
+    nnoremap <silent> u     :<C-U>call repeat#wrapMod("\<Plug>(highlightedundo-undo)",v:count)<CR>
+```
 ## Installation
 
 Install using your favorite package manager, or use Vim's built-in package
