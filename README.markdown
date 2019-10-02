@@ -31,6 +31,8 @@ nmap <C-R> <Plug>(RepeatRedo)
 ```
     nnoremap <silent> u     :<C-U>call repeat#wrapMod("\<Plug>(highlightedundo-undo)",v:count)<CR>
 ```
+This is mainly useful when you want to chain u, U, & ctrl+r together with other plugins and vim-repeat without breaking vim-repeat. For other use cases `repeat#set()` should be sufficient.
+
 ## Installation
 
 Install using your favorite package manager, or use Vim's built-in package
